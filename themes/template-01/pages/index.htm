@@ -14,6 +14,11 @@
     <meta charset="utf-8" />
     <link rel="canonical" href="index.html" />
     <meta name="viewport" content="width=device-width" />
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
+    <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
+    <script async custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"></script>
+    <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
     <style amp-boilerplate>
       body {
         -webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
@@ -72,17 +77,91 @@
         }
       </style></noscript
     >
-    <style amp-custom>{% include 'assets/css/main.css' %}</style>    
+    <style amp-custom>{% include 'assets/css/main.css' %}</style>
     <script async src="https://cdn.ampproject.org/v0.js"></script>
   </head>
   <body>
-    <div class="block">
-      <span class="block__img">
-        <amp-img src="{{ assets.meme }}" width="476" height="313" layout="responsive" alt="Challenge Acepted!"></amp-img>
-      </span>
-      <h1 class="block__title">
-        {{ texts.welcome }}
-      </h1>
+    <header class="header">
+      <amp-img src="{{ assets.logo }}" class="header__image" width="150" height="75" layout="responsive" alt="logo"></amp-img>
+    </header>
+    <div class="banner">
+      <amp-carousel class="banner__carousel" type="slides" width="1920" height="620" controls="" loop autoplay="" delay="3000" layout="responsive" role="region" data-previous-button-aria-label="Go to previous slide" data-next-button-aria-label="Go to next slide">
+        <amp-img class="banner__image" src="{{ assets.banner }}" class="banner__image" width="1920" height="620" layout="responsive" alt="Banner principal"></amp-img>
+        <amp-img class="banner__image" src="{{ assets.second_banner }}" class="banner__image" width="1920" height="620" layout="responsive" alt="Banner principal"></amp-img>
+        <amp-img class="banner__image" src="{{ assets.third_banner}}" class="banner__image" width="1920" height="620" layout="responsive" alt="Banner principal"></amp-img>
+      </amp-carousel>
     </div>
+    <div class="form-container">
+      <h2 class="form-container__title">Solicite Cotação</h2>
+      <form class="form-container__form" method="post" action-xhr="/teste" target="_top">
+        <fieldset>
+          <label for="">
+            <input class="form-container__input" type="{{form.banner_01.fields[1].type}}" placeholder="{{form.banner_01.fields[1].placeholder}}" required>
+          </label>
+          <label for="">
+            <input class="form-container__input" type="{{form.banner_01.fields[2].type}}" placeholder="{{form.banner_01.fields[2].placeholder}}" required>
+          </label>
+          <label for="">
+            <input class="form-container__input" type="{{form.banner_01.fields[3].type}}" placeholder="{{form.banner_01.fields[3].placeholder}}" required>
+          </label>
+          <label for="">
+            <input class="form-container__input" type="{{form.banner_01.fields[4].type}}" placeholder="{{form.banner_01.fields[4].placeholder}}" required>
+          </label>
+          <label for="">
+            <textarea class="form-container__textarea" placeholder="{{form.banner_01.fields[5].placeholder}}"></textarea>
+          </label>
+          <label class="form-container__checkbox">
+            <input type="checkbox"><span class="form-container__checkbox__span">{{form.banner_01.settings.privacy_policy.label}}</span>
+          </label>
+          <input class="form-container__button" type="submit" value="{{form.banner_01.settings.button}}">
+        </fieldset>
+        <div submit-success>
+          <template type="amp-mustache">
+            Subscription successful!
+          </template>
+        </div>
+        <div submit-error>
+          <template type="amp-mustache">
+            Subscription failed!
+          </template>
+        </div>
+      </form>
+    </div>
+    <section class="highlight">
+      <div class="highlight__content">
+        <div class="hightlight_background">
+          <amp-img src="{{ highlights[0].image_home }}" class="highlight__image" width="400" height="400" layout="responsive" alt="highlight"></amp-img>
+        </div>
+        <div class="highlight__information">
+          <h2 class="highlight__title">{{highlights[0].title}}</h2>
+          <p class="highlight__text">{{highlights[0].description}}</p>
+        </div>
+      </div>
+      <div class="highlight__content">
+        <div class="hightlight_background">
+          <amp-img src="{{ highlights[1].image_home }}" class="highlight__image" width="400" height="400" layout="responsive" alt="highlight"></amp-img>
+        </div>
+        <div class="highlight__information">
+          <h2 class="highlight__title">{{highlights[1].title}}</h2>
+          <p class="highlight__text">{{highlights[1].description}}</p>
+        </div>
+      </div>
+      <div class="highlight__content">
+          <div class="hightlight_background">
+            <amp-img src="{{ highlights[2].image_home }}" class="highlight__image" width="400" height="400" layout="responsive" alt="highlight"></amp-img>
+          </div>
+          <div class="highlight__information">
+            <h2 class="highlight__title">{{highlights[2].title}}</h2>
+            <p class="highlight__text">{{highlights[2].description}}</p>
+          </div>
+      </div>
+    </section>
+    <section class="video">
+      <amp-youtube data-videoid="gDnkFy6Avvo" layout="responsive" width="900" height="520"></amp-youtube>
+    </section>
+    <footer class="footer">
+      <amp-img src="{{ assets.logo_footer }}" class="footer__image" width="100" height="50" layout="responsive" alt="logo rodapé"></amp-img>
+      <p class="footer__text">Desenvolvido por Reweb</p>
+    </footer>
   </body>
 </html>

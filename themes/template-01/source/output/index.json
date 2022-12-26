@@ -4,7 +4,12 @@
         "welcome": "Boa sorte no desafio! &#129310;"
     },
     "assets": {
-        "meme": "./assets/img/meme-challenge-accepted.jpeg"
+        "meme": "./assets/img/meme-challenge-accepted.jpeg",
+        "logo": "https:\/\/via.placeholder.com\/150x75",
+        "banner": "https://via.placeholder.com/1920x620",
+        "second_banner": "https://via.placeholder.com/1920x620",
+        "third_banner": "https://via.placeholder.com/1920x620",
+        "logo_footer": "https://via.placeholder.com/100x50"
     },
     "highlights": [
         {
@@ -113,6 +118,15 @@
           },
           {
             "type": "text",
+            "name": "cpf",
+            "label": "cpf",
+            "placeholder": "CPF",
+            "required": "1",
+            "mask": "000000000-00",
+            "switched": ""
+          },
+          {
+            "type": "number",
             "name": "telefone",
             "label": "Telefone",
             "placeholder": "Telefone",

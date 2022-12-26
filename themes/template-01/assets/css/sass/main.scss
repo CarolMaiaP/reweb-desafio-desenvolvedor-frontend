@@ -22,20 +22,240 @@
   box-sizing: border-box;
 }
 
-.block {
+.header {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  height: 100vh;
-  .block__img {
-      margin-bottom: 2rem;
-    amp-img {
-      width: 476px;
-      height: 313px;
+  background: $color-secondary;
+  padding: 0.5rem;
+
+  .header__image {
+    width: 150px;
+    height: 75px;
+  }
+}
+
+.banner {
+  .banner__carousel {
+    height: 490px;
+
+    img {
+      object-fit: cover;
     }
   }
-  .block__title {
-    color: $font-primary;
+}
+
+.form-container {
+  position: absolute;
+  top: 6.4rem;
+  right: 3rem;
+  width: 325px;
+  height: 415px;
+  background: #00000057;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  padding: 0.8rem 2rem;
+  gap: 1rem;
+
+  .form-container__title {
+    color: #fff;
+    background: $bg-transparent;
+    display: flex;
+    justify-content: center;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    margin-top: 0.3rem;
+  }
+
+  .form-container__form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    background-color: $bg-transparent;
+
+    fieldset {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      background: transparent;
+      border: none;
+
+      .form-container__input {
+        padding: 0.5rem 0.3rem;
+        border: 1px solid $font-secondary;
+        border-radius: 4px;
+        width: 100%;
+
+        &::placeholder {
+          color: $font-secondary;
+        }
+      }
+
+      label {
+        background-color: $bg-transparent;
+        .form-container__textarea {
+          height: 70px;
+          padding: 0.5rem 0.3rem;
+          resize: none;
+          border: 1px solid $font-secondary;
+          border-radius: 4px;
+          width: 100%;
+
+          &::placeholder {
+            color: $font-secondary;
+          }
+        }
+      }
+
+      .form-container__checkbox {
+        display: flex;
+        gap: 0.3rem;
+        background-color: $bg-transparent;
+        cursor: pointer;
+
+        .form-container__checkbox__span {
+          font-size: 0.9rem;
+          color: $color-tertiary;
+          background-color: $bg-transparent;
+        }
+      }
+
+      .form-container__button {
+        padding: 0.9rem;
+        border: none;
+        color: $color-tertiary;
+        background-color: $bg-button;
+        font-weight: 700;
+        width: 70%;
+        border-radius: 8px;
+        margin: 0 auto;
+        cursor: pointer;
+        transition: background-color 0.2s;
+
+        &:hover {
+          background-color: #2f2e2e;
+        }
+      }
+    }
+
+    #rendered-message-amp-form-0 {
+      background: #0000006e;
+      color: #fff;
+    }
+  }
+}
+
+.highlight {
+  margin: 3rem 4rem;
+  display: flex;
+  justify-content: space-around;
+  cursor: pointer;
+
+  .highlight__content {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    text-align: left;
+
+    &:hover .hightlight_background::after {
+      background-color: rgba(0, 0, 0, 0.44);
+    }
+
+    .hightlight_background {
+      width: 440px;
+      height: 450px;
+      opacity: 1;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.36);
+        transition: all 0.4s ease-in;
+      }
+
+      .highlight__image {
+        width: 440px;
+        height: 450px;
+      }
+    }
+    .highlight__information {
+      position: absolute;
+      top: 19rem;
+      width: 370px;
+      margin: 0 auto;
+      background-color: $bg-transparent;
+
+      .highlight__title {
+        color: $color-tertiary;
+        background-color: $bg-transparent;
+        margin-bottom: 0.5rem;
+      }
+
+      .highlight__text {
+        color: $color-tertiary;
+        background-color: $bg-transparent;
+      }
+    }
+  }
+}
+
+.video {
+  width: 700px;
+  margin: 3rem auto;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.7rem 1.3rem;
+  background-color: $color-secondary;
+
+  .footer__image {
+    width: 100px;
+    height: 50px;
+  }
+
+  .footer__text {
+    font-size: 0.85rem;
+    background: $bg-transparent;
+    color: $color-tertiary;
+  }
+}
+
+@media (max-width: 600px) {
+  .form-container {
+    right: 1.4rem;
+  }
+
+  .video {
+    width: 366px;
+    margin: 3rem auto;
+  }
+
+  .highlight {
+    flex-direction: column;
+    gap: 2rem;
+    margin: 0;
+
+    .highlight__content {
+      width: 375px;
+
+      .hightlight_background {
+        .highlight__image {
+          width: 375px;
+        }
+      }
+
+      .highlight__information {
+        top: 17rem;
+        width: 321px;
+        left: 15px;
+      }
+    }
   }
 }
